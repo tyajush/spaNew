@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}"/>
+    <title></title>
+  </head>
+  <body onload="bg()" align="center">
+
+    <h1>Result</h1>
+
+    <div class="res">
+      <p >student will get {{result}} %</p>
+      <p id="message"></p>
+    </div>
+        <a href="{% url 'home' %}" >Go back</a>
+
+
+    <script type="text/javascript" >
+    function bg(){
+      if({{result}}>75)
+      {
+        document.body.style.backgroundColor = "green";
+        document.getElementById('message').innerHTML="Excellent! Keep up the good work!";
+      }
+      else{
+        if({{result}}>40){
+          document.body.style.backgroundColor = "yellow";
+          document.getElementById('message').innerHTML="You can do better!";
+        }
+      else{
+        document.body.style.backgroundColor = "red";
+        document.getElementById('message').innerHTML="You need to work harder!";
+      }
+      }
+    }
+    </script>
+
+
+  </body>
+</html>
